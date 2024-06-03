@@ -9,7 +9,7 @@ export class AgeCalculatorPipe implements PipeTransform {
   transform(value: Date | undefined): string {
 
     if (!value) {
-      return 'Fecha no disponible';
+      return 'Edad no disponible';
     }
 
     const birthDate = new Date(value);
