@@ -37,7 +37,6 @@ export class PokemonSelectorComponent implements OnInit {
     const pokemons = this.pokemons()
     const searchValue = this.searchValue()
     if (searchValue) return pokemons?.filter((pokemon) => {
-      console.log()
       return pokemon.name.toLowerCase().includes(searchValue.toLowerCase()) || String(pokemon.id).toLowerCase().includes(searchValue.toLowerCase())
     })
     return pokemons
