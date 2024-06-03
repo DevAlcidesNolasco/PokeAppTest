@@ -1,0 +1,31 @@
+<section>
+  <h4>Tu informacion</h4>
+  <p>Completa la siguiente informacion para completar tu perfil</p>
+  <form (ngSubmit)="onSubmit()" [formGroup]="informationForm">
+    <div class="input-item">
+      <label for="fullName">Nombre*</label>
+      {{isFocus.fullName}}
+      <input type="text" (focus)="setFocus('fullName')" (blur)="setBlur('fullName')" formControlName="fullName"
+        name="fullName" id="fullName">
+    </div>
+    <div class="input-item">
+      <label for="birthdate">Cumpleaños*</label>
+      <input type="date" formControlName="birthdate" name="birthdate" id="birthdate">
+    </div>
+    <div class="input-item">
+      <label for="hobby">Pasatiempo Favorito</label>
+      <select formControlName="hobby" name="hobby" id="hobby">
+        <option value="" disabled selected>Pasatiempo Favorito</option>
+        <option value="futbol">Jugar Futbol</option>
+        <option value="basketball">Jugar Basketball</option>
+        <option value="tenis">Jugar Tenis</option>
+        <option value="padel">Jugar Padel</option>
+      </select>
+    </div>
+    <div class="input-item">
+      <label for="dni">DUI*</label>
+      <input type="text" formControlName="dni" name="dni" id="dni">
+    </div>
+    <button type="submit" [disabled]="!informationForm.valid">Continuar</button>
+  </form>
+</section>
