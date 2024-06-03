@@ -43,6 +43,7 @@ export class PokemonSelectorComponent implements OnInit {
   })
 
   async ngOnInit() {
+    // For greater readability we will pass observables to promises, to make the code more linear
     let pokemonResults = await lastValueFrom(this.http.get<any>('https://pokeapi.co/api/v2/pokemon?limit=9'))
     let pokemonsWithData = await Promise.allSettled(pokemonResults.results.map(async (pokemon: any) => lastValueFrom(this.http.get(pokemon.url))))
     let pokemonsResponse: PokemonToSelect[] = pokemonsWithData.filter((result) => result.status === 'fulfilled').map(({ value }: any) => value).filter((value: PokemonToSelect[]) => value)
@@ -67,11 +68,9 @@ export class PokemonSelectorComponent implements OnInit {
         return pokemonsData
       })
     }
-    console.log("🚀 ~ PokemonSelectorComponent ~ ngOnInit ~ pokemonsResponse:", pokemonsResponse)
   }
 
   selectPokemon = (pokemon: PokemonToSelect) => {
-
     const hasPokemon = this.pokemonSelected.filter((pokemonSelected) => {
       return pokemonSelected.id === pokemon.id
     }).at(0)

@@ -79,14 +79,15 @@ export class ConfiguratorComponent {
   }
 
   public onDrop = (event: DragEvent) => {
-    console.log(event)
+    // We prevent it from doing the default action when dropping the image, and we also prevent the propagation of the event to the other elements of the dom.
     event.preventDefault();
     event.stopPropagation();
 
+    // If an image was placed we proceed to operate with it
     if (event.dataTransfer?.files && event.dataTransfer.files.length) {
       const reader = new FileReader()
+      // We convert it to base64 only for practical purposes of the test
       reader.readAsDataURL(event.dataTransfer?.files[0])
-      // console.log("🚀 ~ ConfiguratorComponent ~ event.dataTransfer?.files[0]:", event.dataTransfer?.files[0].name)
       this.imageSelected = event.dataTransfer?.files[0].name ?? null
       reader.onload = () => {
         this.informationForm.patchValue({ photoUrl: reader.result?.toString() })
@@ -99,7 +100,6 @@ export class ConfiguratorComponent {
 
     if (this.isAdult) {
       const rawValue = input.value.replace(/\D/g, ''); // Elimina todos los caracteres no numéricos
-      console.log("🚀 ~ ConfiguratorComponent ~ onInput ~ rawValue:", rawValue)
       if (rawValue.length > 8) {
         this.formattedDui = rawValue.slice(0, 8) + '-' + rawValue.slice(8, 9);
       } else {
@@ -134,20 +134,23 @@ export class ConfiguratorComponent {
 
   changeDate = (event: Event) => {
     const dateSelected = new Date((event.target as HTMLInputElement).value)
-
     const today = new Date();
     const age = today.getFullYear() - dateSelected.getFullYear();
     const monthDiff = today.getMonth() - dateSelected.getMonth();
+    // For validation manipulation we take the entered date
     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dateSelected.getDate())) {
       this.isAdult = age - 1 >= 18; // Si aún no ha cumplido años, resta uno
     }
     this.isAdult = age >= 18;
     const fieldDui = this.informationForm.get('dni')
+    // If it is an adult, we set validations again
     if (this.isAdult) {
       fieldDui?.setValidators([Validators.required, Validators.minLength(9), Validators.maxLength(9)])
     } else {
+      // If you are not of legal age we simply remove the validations from the field.
       fieldDui?.clearValidators()
     }
+    // We update so that the changes are applied
     fieldDui?.updateValueAndValidity();
   }
 
