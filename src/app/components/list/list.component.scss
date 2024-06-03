@@ -1,0 +1,155 @@
+main {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+  justify-content: space-evenly;
+
+  section {
+
+    &.account-information {
+      width: 35%;
+
+      div.card-information {
+        // border: red solid 1px;
+        display: flex;
+        flex-flow: column nowrap;
+        box-sizing: border-box;
+        background-color: #FFC600;
+        border-radius: 50px;
+        align-items: center;
+        gap: 30px;
+        padding: 35px 30px;
+
+        h2,
+        p {
+          margin: 0;
+        }
+
+        img {
+          height: 270px;
+          width: 270px;
+          border-radius: 50%;
+          border: white 10px solid;
+        }
+
+        div.detail-segment {
+          display: flex;
+          flex-flow: column nowrap;
+          gap: 10px;
+          // border: green solid 1px;
+          width: 100%;
+
+          div.detail {
+            display: flex;
+            // border: red solid 1px;
+            justify-content: space-between;
+
+            span,
+            p {
+              font-size: 24px;
+              color: #4B4B4B;
+            }
+
+            span {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+
+    }
+
+    &.my-selection {
+      width: 55%;
+
+      div.header {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        margin: 20px auto;
+
+        h3 {
+          margin: 0;
+        }
+
+        button {
+          // display: flex;
+          border: var(--primary-color-00) solid 1px;
+          color: var(--primary-color-00);
+          border-radius: 10px;
+          padding: 10px 50px;
+          font-size: 12px;
+          font-weight: bold;
+          background-color: white;
+          width: 134px;
+          height: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          font-weight: bold;
+
+          svg {
+            height: 18px;
+            width: 18px;
+            min-height: 18px;
+            min-width: 18px;
+            fill: var(--primary-color-00);
+          }
+        }
+      }
+
+      div.my-pokemons {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 10px;
+
+        div.pokemon {
+          background-color: var(--neutro-color-10);
+          aspect-ratio: 4 / 2;
+          border-radius: 10px;
+          display: grid;
+          grid-template-columns: 30% 70%;
+          padding: 20px;
+          box-sizing: border-box;
+
+          @media screen and (min-width: 720px) and (orientation: landscape) {
+            grid-template-columns: 40% 60%;
+          }
+
+          div.information {
+            grid-column: 1 / 2;
+
+            img {
+              width: 180px;
+              height: 180px;
+            }
+          }
+
+          div.stats {
+            grid-column: 2 / 3;
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 20px;
+
+            // div.stat {
+            //   display: grid;
+            //   grid-template-columns: 30% 70%;
+            //   gap: 10px;
+
+            //   p {
+            //     margin: 0;
+            //   }
+
+            //   div.graphic-bar {
+            //     border: red solid 1px;
+            //     width: 100%;
+            //   }
+            // }
+          }
+
+        }
+      }
+    }
+  }
+}
