@@ -9,13 +9,14 @@ import { UserService } from '../../../../services/user/user.service';
 import { AgeCalculatorPipe } from '../../../../pipes/age-calculator.pipe';
 import { DuiFormaterPipe } from '../../../../pipes/dui-formater.pipe';
 import { Router } from '@angular/router';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 type PokemonToSelect = Pokemon & { selected?: boolean }
 
 @Component({
   selector: 'app-pokemon-selector',
   standalone: true,
-  imports: [JsonPipe, FormatPokemonIdPipe, TitleCasePipe, AgeCalculatorPipe, DuiFormaterPipe],
+  imports: [JsonPipe, FormatPokemonIdPipe, TitleCasePipe, AgeCalculatorPipe, DuiFormaterPipe, ScrollingModule],
   templateUrl: './pokemon-selector.component.html',
   styleUrl: './pokemon-selector.component.scss'
 })

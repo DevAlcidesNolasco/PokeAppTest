@@ -2,17 +2,21 @@ div.pokemon-selection {
   box-sizing: border-box;
   display: flex;
   flex-flow: column nowrap;
+
+  .pokemon-viewport,
   section {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    height: 400px;
 
     div.pokemon {
       // border: red solid 1px;
       aspect-ratio: 7 / 8;
       display: flex;
       cursor: pointer;
+      height: 170px;
 
       &.pokemon--selected {
         div.background {

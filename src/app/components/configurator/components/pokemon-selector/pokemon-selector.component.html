@@ -6,10 +6,10 @@
       <div class="detail-segment">
 
         @if (account()?.hobby) {
-          <div class="detail">
-            <span>Pasatiempo:</span>
-            <p>{{ account()?.hobby }}</p>
-          </div>
+        <div class="detail">
+          <span>Pasatiempo:</span>
+          <p>{{ account()?.hobby }}</p>
+        </div>
         }
         <div class="detail">
           <span>Edad:</span>
@@ -29,9 +29,10 @@
     <h4>Pokemon</h4>
     <p>Selecciona 3 pokemon para que sean parte de tu equipo</p>
 
-    <input type="search" name="configurator_search_pokemon" id="configurator_search_pokemon" (input)="setSearchValue($event)">
+    <input type="search" name="configurator_search_pokemon" id="configurator_search_pokemon"
+      (input)="setSearchValue($event)">
+    @if (pokemonsToShow() !== null) {
     <section>
-      @if (pokemonsToShow() !== null) {
       @for (item of pokemonsToShow(); track $index) {
       <div class="pokemon" [class.pokemon--selected]="item.selected" (click)="selectPokemon(item)">
         <div class="background">
@@ -43,8 +44,23 @@
         </div>
       </div>
       }
-      }
     </section>
+
+    <!-- another option using virutal-scroll from the angular cdk, but with vertical scroll only -->
+
+    <!-- <cdk-virtual-scroll-viewport class="pokemon-viewport" itemSize="170" orientation="vertical">
+      <div *cdkVirtualFor="let item of pokemonsToShow()" class="pokemon" [class.pokemon--selected]="item.selected"
+        (click)="selectPokemon(item)">
+        <div class="background">
+          <img [src]="item.sprites.other?.home?.front_default" alt="">
+          <div class="text">
+            <h5>{{item.name | titlecase }}</h5>
+            <p>{{ item.id | formatPokemonId }}</p>
+          </div>
+        </div>
+      </div>
+    </cdk-virtual-scroll-viewport> -->
+    }
     <button [disabled]="canSelectPokemon" (click)="savePokemons()">Guardar</button>
   </div>
 </main>
