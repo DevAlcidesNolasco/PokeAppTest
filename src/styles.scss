@@ -1,1 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/Poppins-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/Poppins-Thin.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.main_content {
+  @media screen and (orientation: landscape) {
+    margin: 0 auto;
+
+    @media (min-width: 1921px) {
+      width: 50%;
+    }
+
+    @media (max-width: 1920px) and (min-width: 1367px) {
+      width: 65%;
+    }
+
+    @media (max-width: 1366px) {
+      width: 80%;
+    }
+
+  }
+}
+
+:root {
+  --primary-color-00: #01426A;
+  --primary-color-30: #2C85BC;
+  --primary-color-40: #9BB8D3;
+  --neutro-color-10: #F2F2F2;
+  --neutro-color-20: #E6E6E6;
+  --neutro-color-40: #868686;
+  --neutro-color-50: #454545;
+}
