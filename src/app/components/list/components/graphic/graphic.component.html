@@ -1,0 +1,7 @@
+<div class="stat">
+  <p>{{ title }}</p>
+  <div class="graphic-bar">
+    <div class="bar-value" [class.bar-value--mid]="calcularAncho() >= 33 && calcularAncho() <= 66" [class.bar-value--low]="calcularAncho() < 33" [class.bar-value--high]="calcularAncho() > 66" [style.width.%]="calcularAncho()" >
+    </div>
+  </div>
+</div>

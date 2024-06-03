@@ -1,0 +1,44 @@
+div.stat {
+  display: grid;
+  grid-template-columns: 35% 65%;
+
+  @media screen and (min-width: 720px) and (orientation: landscape) {
+    grid-template-columns: 50% 50%;
+  }
+
+  p {
+    grid-column: 1 / 2;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  div.graphic-bar {
+    background-color: var(--neutro-color-10);
+    grid-column: 2 / 3;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    box-sizing: border-box;
+    border-radius: 30px;
+    border: white solid 2px;
+
+
+    div.bar-value {
+      height: 10px;
+      border-radius: 30px;
+    }
+
+    div.bar-value--low {
+      background-color: rgb(189, 26, 26);
+    }
+
+    div.bar-value--mid {
+      background-color: #FFC600;
+    }
+
+    div.bar-value--high {
+      background-color: #7ED876;
+    }
+  }
+}
