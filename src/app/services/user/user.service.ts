@@ -23,13 +23,7 @@ export class UserService {
     return this.chosenPokemons()
   })
 
-  constructor() {
-    const account = localStorage.getItem('pokeAppAccount')
-    if (account) {
-      const accountPrepared = JSON.parse(account)
-      this.account.set(accountPrepared)
-    }
-   }
+  constructor() { }
 
   setAccountData = (value: Account) => {
     this.account.set(value)
