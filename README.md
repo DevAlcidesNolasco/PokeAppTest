@@ -43,7 +43,7 @@ Steps to install dependencies and set up the environment:
 
 3. Clone the repository:
     ```bash
-    git clone https://github.com/user/PokeApp.git
+    git clone https://github.com/DevAlcidesNolasco/PokeAppTest.git
     cd PokeApp
     ```
 
