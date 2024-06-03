@@ -72,15 +72,6 @@ Instructions to run the project:
     http://localhost:4200
     ```
 
-## Testing
-
-Instructions to run tests and verify everything is working correctly:
-
-1. Run the tests:
-    ```bash
-    ng test
-    ```
-
 ## License
 
 This project is licensed under the MIT License.
